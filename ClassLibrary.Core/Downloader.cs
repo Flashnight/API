@@ -8,7 +8,7 @@ using HtmlAgilityPack;
 
 namespace ClassLibrary.Core
 {
-    static class Downloader
+    class Downloader
     {
         private string filePath = null;
         private string fileUrl = null;
@@ -34,7 +34,7 @@ namespace ClassLibrary.Core
                     foreach (var atr in node.Attributes)
                         if (atr.Name == "href" && atr.Value.ToLower().Contains(".ttl")) //поиск ссылки на требуемый файл на странице
                             fileUrl = atr.Value;
-                webClient.DownloadFile(fileUrl, filePath); //загрузка файла на диск по адресу filePath
+                webClient.DownloadFile(fileUrl, filePath); //загрузка файла на диск по адресу filePath                
             }
             catch (Exception) { }
         }
